@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<script>
+    let front = "images/robot-front.jpg";
+    let lateral = "images/robot-without-screen.jpg";
+    let back = "images/robot-back.jpg";
+
+    function changepicture(side){
+        var pimage = document.getElementById("imagen");
+        var current = pimage.src.split("/").pop();
+        switch(current){
+            case "robot-front.jpg":
+                if(side === 0){pimage.src = lateral;}
+                else {pimage.src = back}
+                break;
+            case "robot-without-screen.jpg":
+                if(side === 0){pimage.src = back;}
+                else {pimage.src = front}
+                break;
+            case "robot-back.jpg":
+                if(side === 0){pimage.src = front;}
+                else {pimage.src = lateral}
+                break;
+        }
+        next = pimage.src.split("/").pop();
+        switch(next){
+            case "robot-front.jpg":
+                document.getElementById("fr").style.border = "2px solid";
+                document.getElementById("ws").style.border = "1px solid";
+                document.getElementById("bk").style.border = "1px solid";
+                break;
+            case "robot-without-screen.jpg":
+                document.getElementById("fr").style.border = "1px solid";
+                document.getElementById("ws").style.border = "2px solid";
+                document.getElementById("bk").style.border = "1px solid";
+                break;
+            case "robot-back.jpg":
+                document.getElementById("fr").style.border = "1px solid";
+                document.getElementById("ws").style.border = "1px solid";
+                document.getElementById("bk").style.border = "2px solid";
+                break;
+        }
+    }
+</script>
+
+<body>
+    <header>
+        <p class=".bitcount-grid-double-dotfont">PlayAI</p>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="images/home.svg" alt="Inicio"></a></li>
+                <li><a href="bascket.html"><img src="images/shopping-cart.svg" alt="Carrito"></a></li>
+                <li><a href="contact.html"><img src="images/comment.svg" alt="Soporte"></a>
+                    <ul id="submenu">
+                        <li><a href="">Localiza tu pedido</a></li>
+                        <li><a href="">Contactar con soporte</a></li>
+                        <li><a href="">Preguntas frecuentes</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="window">
+            <div class="product">
+                <button onclick="changepicture(1)" class="slide"><img src="images/angle-left.svg" alt="left" id="left"></button>
+                <div>
+                    <div class="mainpicture">
+                        <img src="images/robot-front.jpg" alt="robot vista frontal" id="imagen">
+                    </div>
+                    <div class="otherpicture">
+                        <img src="images/robot-front.jpg" alt="robot vista frontal" id="fr">
+                        <img src="images/robot-without-screen.jpg" alt="robot sin pantalla" id="ws">
+                        <img src="images/robot-back.jpg" alt="robot vista trasera" id="bk">
+                    </div>
+                </div>
+                <button onclick="changepicture(0)" class="slide"><img src="images/angle-right.svg" alt="right" id="right"></button>
+            </div>
+            <div class="content">
+                <h1>KawAI</h1>
+                <h3>Compañero de escritorio con IA con interacción de voz ChatGPT, memoria, personalidad, reconocimiento de gestos y rostro, soporte emocional y carga inalámbrica de 10 W.</h3>
+                <p>Vendido por: shenzhen chuangyin co ltd</p>
+                <p>4.2 ⭐⭐⭐⭐ (76)</p>
+                <hr>
+                <h3>273<sup>67</sup>€</h3>
+                <p>Los precios de los productos vendidos en PlayAI incluyen el IVA. Dependiendo de tu dirección de entrega, el IVA puede variar al finalizar la compra. Para obtener más información, <a href="">clic aqui.</a></p>
+                <br>
+                <ul>
+                    <li><p><span>Personalidad evolutiva:</span> el juguete desarrolla su propia personalidad según cómo interactúas con él (puede volverse más curioso, bromista o tranquilo).</p></li>
+                    <li><p><span>Memoria emocional:</span> recuerda momentos importantes contigo y reacciona en consecuencia (si un día estabas triste, te preguntará luego cómo estás).</p></li>
+                    <li><p><span>Modo aventura narrativa:</span> crea historias personalizadas donde tú eres el protagonista y el juguete actúa como narrador o compañero.</p></li>
+                    <li><p><span>Expresiones físicas dinámicas:</span> cambia luces, movimientos o incluso “expresiones faciales” digitales para mostrar emociones.</p></li>
+                    <li><p><span>Conexión con otros juguetes:</span> puede “hablar” con otros dispositivos iguales para crear experiencias cooperativas o competitivas.</p></li>
+                </ul>
+                <div class="botonera">
+                    <button class="buy" onclick="alert('Agregado al carrito')">Agregar al carrito</button>
+                    <button class="buy" onclick="alert('Su pedido llegara en 5 días')">Comprar ya</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div><p>2026 HTML + CSS + Font link // Barcelona // Jose</p></div>
+    </footer>
+</body>
+</html>
